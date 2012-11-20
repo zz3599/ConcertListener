@@ -1,2 +1,4 @@
-tunearound_node
+ConcertListener
 ===============
+
+Dependencies: Node.js, bootstrap, jQuery
