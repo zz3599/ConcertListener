@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+	<div id="youtube"></div>
+	<script>
+	$(document).ready(function () {
+
+		$.ajax({
+			type: "GET",
+		    url:"./search",	
+		    async: true,
+		    dataType: "json",
+		    success: function(res) {
+		       var performers = res;
+				$(performers).each(function(i, val){
+					console.log(val);
+					getAndShowYoutubeVideo(val.name, val.url);
+				});
+		    }
+		}); 
+		
+
+
+		function getAndShowYoutubeVideo(artist, seatgeekurl)
+		{
+			console.log("http://ex.fm/api/v3/song/search/"+encodeURIComponent(artist));
+			$.ajax({
+			  url:"http://ex.fm/api/v3/song/search/"+encodeURIComponent(artist)
+			}).done(function(data) { 
+			  	var youtubedata = data.songs;
+			    if(youtubedata.length == 0) return; 
+				$(youtubedata).each(function(i, val){
+					if(val.artist && val.artist.indexOf(artist) > -1){
+						var url = val.url;
+						var div = $('<div class="artist">').append(artist + ' ' + seatgeekurl + '<br><a href="'+ url +'">link</a><br>').
+							append(url+"<br><br>");
+						$('#youtube').append(div);
+						return false ; //false to break	  
+					}
+					
+				});
+			});
+		}
+		//getAndShowYoutubeVideo('moby');
+	});
+	</script>
+</body>
+</html>

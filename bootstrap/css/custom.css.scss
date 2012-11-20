@@ -1,0 +1,88 @@
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+.navbar-wrapper {
+  position: relative;
+  z-index: 10;
+  margin-top: 0x;
+  margin-bottom: -10px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+}
+
+.navbar .navbar-inner {
+  border: 0;
+  -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+
+}
+
+.navbar .brand {
+  padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  color: #FFF;
+}
+
+.navbar .nav > li > a {
+  padding: 10px 20px;
+}
+
+.navbar .btn-navbar {
+  margin-top: 10px;
+}
+
+.brand img{
+  margin-right: 18px;
+}
+
+li a img{
+  display: none;
+}
+
+li a:hover img{
+  display:inline;
+  position: absolute;
+  right:35px;
+}
+
+
+/* CONTENT CSS MODIFICATIONS */
+.navbar-inverse .nav-collapse .nav > li > a:hover{
+  background-color: #FFFFFF;
+  color: #0489B1;
+}
+
+.nav-list > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/* END OF CONTENT MOD */
+
+
+@media (max-width: 979px) {
+
+  .container.navbar-wrapper {
+    margin-bottom: 0;
+    width: auto;
+  }
+  .navbar-inner {
+    border-radius: 0;
+    margin: 0px 0;
+    width:auto;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .navbar-inner {
+    margin: 0px -20px 15px -20px;
+  }
+
+}
+
+
+
+
